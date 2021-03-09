@@ -1,0 +1,40 @@
+[
+  {
+    "name": "example",
+    "image": "image:tag",
+    "cpu": 10,
+    "memory": 256,
+    "essential": true,
+    "portMappings": [
+      {
+        "containerPort": 3000
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": { 
+        "awslogs-group" : "/ecs/example",
+        "awslogs-region": "ap-northeast-2"
+      }
+    },
+    "environment": [
+      {
+        "name": "DATABASE_USER",
+        "value": "${DATABASE_USER}"
+      },
+      {
+        "name": "DATABASE_PASSWORD",
+        "value": "${DATABASE_PASSWORD}"
+      },
+      {
+        "name": "DATABASE_NAME",
+        "value": "${DATABASE_NAME}"
+      },
+      {
+        "name": "DATABASE_HOST",
+        "value": "${DATABASE_HOST}"
+      }
+    ]
+  }
+]
+
